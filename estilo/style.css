@@ -1,0 +1,57 @@
+html {height: 100%;}
+
+body {background-color: blue; color: white; font-family: Arial, Helvetica, sans-serif; margin: 0;
+display: flex; 
+flex-direction: column;
+min-height: 100vh;}
+
+main {flex: 1;
+background-color: rgb(1, 1, 194);
+display: flex;
+justify-content: space-evenly;}
+
+section {background-color: rgb(89, 89, 180); 
+width: 300px;
+margin-top: 30px;
+height: 450px;
+border-radius: 5px;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.267);
+text-align: center;
+padding: 10px;}
+
+#campoResultado {background-color: white;
+color: black;
+font-weight: bold;
+height: 30px;
+align-content: center;
+border-radius: 5px;
+box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.315);}
+
+#adicionar, #remover, #cursoSelecionado, #removerTodos {margin-top: 20px;
+background-color: rgb(1, 1, 80);
+padding: 10px;
+border-radius: 5px;
+box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.397);
+cursor: pointer;}
+
+#menu {display: flex;
+flex-direction: column;}
+
+#displayVetores {margin-top: 10px;
+height: 40%;
+border-radius: 5px;
+background-color: rgba(1, 1, 80, 0.705);
+box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.192);
+align-content: center;}
+
+.curso {margin-top: 20px;
+background-color: rgba(1, 1, 80, 0.705);
+padding: 10px;
+border-radius: 5px;
+font-weight: bold;
+display: flex;
+justify-content: space-between;}
+
+label {cursor: pointer;}
+
+h1 {text-align: center;}
