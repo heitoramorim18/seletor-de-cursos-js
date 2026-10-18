@@ -78,8 +78,8 @@ remover.addEventListener('click', () => {
 
     // Se todos foram removidos
     if (todosOsCursos == "") {
-        displayVetor.innerHTML = 'Todos foram removidos!'
-        campoResultado.innerHTML = ''
+        campoResultado.innerHTML = 'Todos foram removidos!'
+        displayVetor.innerHTML = `[ ${todosOsCursos} ]`
     }
 })
 
