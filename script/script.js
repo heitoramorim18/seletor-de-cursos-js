@@ -33,7 +33,7 @@ cursos.map((curso) => {
 selecionado.addEventListener('click', () => {
 
     // SE NADA FOI SELECIONADO, EXIBE MENSAGEM
-    if (!cursoSelecionado) campoResultado.innerHTML = 'Nada foi selecionado!'
+    if (!cursoSelecionado) campoResultado.innerHTML = 'Nada foi selecionado'
 
     // SE NÃO, mostra o curso no campo resultado e no console
     else campoResultado.innerHTML = `${cursoSelecionado}`
@@ -45,7 +45,7 @@ selecionado.addEventListener('click', () => {
 adicionar.addEventListener('click', () => {
 
     // Se nada foi selecionado, exibir mensagem
-    if (!cursoSelecionado) campoResultado.innerHTML = `Nada foi selecionado!`
+    if (!cursoSelecionado) campoResultado.innerHTML = `Nada foi selecionado`
 
 
     // Se o curso já existir no vetor, exibir mensagem
@@ -69,11 +69,11 @@ remover.addEventListener('click', () => {
     const indice = todosOsCursos.indexOf(cursoSelecionado)
 
     // Se o vetor já estiver vazio, exibir mensagem
-    if (todosOsCursos == "") campoResultado.innerHTML = 'Não existem cursos para remover!'
+    if (todosOsCursos == "") campoResultado.innerHTML = 'Não existem cursos para remover'
 
 
     // Se o elemento não existe no vetor, exibir mensagem
-    else if (indice == -1) campoResultado.innerHTML = 'Este curso não foi adicionado!'
+    else if (indice == -1) campoResultado.innerHTML = 'Este curso não foi adicionado'
 
 
     // Se o elemento existir, remove e mostra nos campos
@@ -87,7 +87,7 @@ remover.addEventListener('click', () => {
 
     // Se todos foram removidos
     else if (todosOsCursos == "") {
-        campoResultado.innerHTML = 'Todos foram removidos!'
+        campoResultado.innerHTML = 'Todos foram removidos'
         displayVetor.innerHTML = `[ ${todosOsCursos} ]`
     }
 })
@@ -98,7 +98,7 @@ remover.addEventListener('click', () => {
 removerTodos.addEventListener('click', () => {
 
     // Se o vetor já estiver vazio, exibir mensagem
-    if (todosOsCursos == "") campoResultado.innerHTML = 'Não existem cursos para remover!'
+    if (todosOsCursos == "") campoResultado.innerHTML = 'Não existem cursos para remover'
 
 
     // Caso contrário, remove tudo e mostra mensagem
