@@ -60,6 +60,9 @@ adicionar.addEventListener('click', () => {
 remover.addEventListener('click', () => {
     const inputSelecionado = document.querySelector('input[name="rad"]:checked')
 
+    // Se o vetor já estiver vazio, exibir mensagem
+    if (todosOsCursos == "") {campoResultado.innerHTML = 'Não existem cursos para remover!'}
+
     // Guarda o índice do curso que está dentro do vetor na variável pra usar depois
     const indice = todosOsCursos.indexOf(inputSelecionado.previousElementSibling.innerHTML)
 
@@ -77,7 +80,7 @@ remover.addEventListener('click', () => {
 
 
     // Se todos foram removidos
-    if (todosOsCursos == "") {
+    else if (todosOsCursos == "") {
         campoResultado.innerHTML = 'Todos foram removidos!'
         displayVetor.innerHTML = `[ ${todosOsCursos} ]`
     }
