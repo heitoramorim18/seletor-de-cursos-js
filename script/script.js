@@ -10,6 +10,19 @@ let cursoEscolhido = ''
 let todosOsCursos = []
 
 
+function limpaSeletor () {
+    cursos.map((curso) => {
+        curso.classList.remove('selecionado')
+    })
+}
+
+cursos.map((curso) => {
+    curso.addEventListener('click', () => {
+        limpaSeletor()
+        curso.classList.add('selecionado')
+    })
+})
+
 
 // MOSTRA O CURSO ESCOLHIDO
 selecionado.addEventListener('click', () => {

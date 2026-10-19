@@ -50,8 +50,9 @@ padding: 10px;
 border-radius: 5px;
 font-weight: bold;
 display: flex;
-justify-content: space-between;}
+justify-content: space-between;
+cursor: pointer;}
 
-label {cursor: pointer;}
+.selecionado {background-color: rgba(1, 1, 80, 0.26);}
 
 h1 {text-align: center;}
