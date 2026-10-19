@@ -1,12 +1,15 @@
+// BOTÕES DO MENU
 const selecionado = document.getElementById('cursoSelecionado')
 const adicionar = document.getElementById('adicionar')
 const remover = document.getElementById('remover')
 const removerTodos = document.getElementById('removerTodos')
+// OPÇÕES DE CURSOS
+const cursos = [...document.getElementsByClassName('curso')]
+// DISPLAY
 const campoResultado = document.getElementById('campoResultado')
 const displayVetor = document.getElementById('displayVetores')
-const cursos = [...document.getElementsByClassName('curso')]
-const cursoSelecionado = ''
-let cursoEscolhido = ''
+// VARIÁVEIS
+let cursoSelecionado = ''
 let todosOsCursos = []
 
 
@@ -20,49 +23,39 @@ cursos.map((curso) => {
     curso.addEventListener('click', () => {
         limpaSeletor()
         curso.classList.add('selecionado')
+
+        cursoSelecionado = curso.innerHTML
     })
 })
 
 
 // MOSTRA O CURSO ESCOLHIDO
 selecionado.addEventListener('click', () => {
-    const inputSelecionado = document.querySelector('input[name="rad"]:checked')
 
     // SE NADA FOI SELECIONADO, EXIBE MENSAGEM
-    if (!inputSelecionado) campoResultado.innerHTML = 'Nada foi selecionado!'
+    if (!cursoSelecionado) campoResultado.innerHTML = 'Nada foi selecionado!'
 
     // SE NÃO, mostra o curso no campo resultado e no console
-    else {
-    campoResultado.innerHTML = `${inputSelecionado.previousElementSibling.innerText}`
-    console.log(inputSelecionado.previousElementSibling)
-    }
+    else campoResultado.innerHTML = `${cursoSelecionado}`
 })
 
 
 
 // ADICIONA O CURSO NO VETOR
 adicionar.addEventListener('click', () => {
-    const inputSelecionado = document.querySelector('input[name="rad"]:checked')
-
 
     // Se nada foi selecionado, exibir mensagem
-    if (!inputSelecionado) campoResultado.innerHTML = `Nada foi selecionado!`
+    if (!cursoSelecionado) campoResultado.innerHTML = `Nada foi selecionado!`
 
 
     // Se o curso já existir no vetor, exibir mensagem
-    else if (todosOsCursos.includes(inputSelecionado.previousElementSibling.innerText)) {
-        campoResultado.innerHTML = 'Curso já escolhido'
-    }
+    else if (todosOsCursos.includes(cursoSelecionado)) campoResultado.innerHTML = 'Curso já escolhido'
 
 
     // Caso contrário, guarda no vetor e mostra nos campos
     else {
-    cursoEscolhido = inputSelecionado.previousElementSibling.innerText
-    campoResultado.innerHTML = `${cursoEscolhido} adicionado`
-
-    todosOsCursos.push(cursoEscolhido)
-    console.log(todosOsCursos)
-
+    campoResultado.innerHTML = `${cursoSelecionado} adicionado`
+    todosOsCursos.push(cursoSelecionado)
     displayVetor.innerHTML = `[ ${todosOsCursos} ]`
     }  
 })
@@ -71,23 +64,23 @@ adicionar.addEventListener('click', () => {
 
 // REMOVE O CURSO DO VETOR
 remover.addEventListener('click', () => {
-    const inputSelecionado = document.querySelector('input[name="rad"]:checked')
-
-    // Se o vetor já estiver vazio, exibir mensagem
-    if (todosOsCursos == "") {campoResultado.innerHTML = 'Não existem cursos para remover!'}
 
     // Guarda o índice do curso que está dentro do vetor na variável pra usar depois
-    const indice = todosOsCursos.indexOf(inputSelecionado.previousElementSibling.innerHTML)
+    const indice = todosOsCursos.indexOf(cursoSelecionado)
+
+    // Se o vetor já estiver vazio, exibir mensagem
+    if (todosOsCursos == "") campoResultado.innerHTML = 'Não existem cursos para remover!'
 
 
     // Se o elemento não existe no vetor, exibir mensagem
-    if (indice == -1) campoResultado.innerHTML = 'Este curso não foi adicionado!'
+    else if (indice == -1) campoResultado.innerHTML = 'Este curso não foi adicionado!'
 
 
     // Se o elemento existir, remove e mostra nos campos
     else if (indice !== -1) {
         todosOsCursos.splice(indice, 1)
         console.log(todosOsCursos)
+        campoResultado.innerHTML = `${cursoSelecionado} removido`
         displayVetor.innerHTML = `[ ${todosOsCursos} ]`
     }
 
@@ -105,7 +98,7 @@ remover.addEventListener('click', () => {
 removerTodos.addEventListener('click', () => {
 
     // Se o vetor já estiver vazio, exibir mensagem
-    if (todosOsCursos == "") {campoResultado.innerHTML = 'Não existem cursos para remover!'}
+    if (todosOsCursos == "") campoResultado.innerHTML = 'Não existem cursos para remover!'
 
 
     // Caso contrário, remove tudo e mostra mensagem
